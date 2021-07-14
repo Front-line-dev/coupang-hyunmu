@@ -23,5 +23,4 @@ def get_review_history(reviewer_id):
     history_html = requests.get(generate_history_url(reviewer_id), headers=HEADERS).text
     soup = BeautifulSoup(history_html, 'html.parser')
     history_list = [elem.text for elem in soup.find_all('div', 'sdp-review__profile__article__list__reviews__product__name')]
-    # history_list = [elem.text for elem in soup.find_all() if 'sdp-review__profile__article__list__reviews__product__name' in elem['class']]
     return history_list
